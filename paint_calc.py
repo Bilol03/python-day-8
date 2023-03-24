@@ -1,5 +1,6 @@
+import math
 def paint_calc(height, width, cover):
-    res = round((height * width) / 5)
+    res = math.ceil((height * width) / 5)
     print(f"You'll need {res} cans of paint.")
 
 
