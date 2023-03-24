@@ -4,23 +4,19 @@ direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
 
-def encrypt(plain_text, plain_shift):
+
+
+def ceasar(plain_text, plain_shift, direction):
     res = ""
+    
     for i in plain_text:
         index = alphabet.index(i)
+
+        if direction == "decode":
+            index *= -1
         index += plain_shift
         res += alphabet[index]
-    print(res)
 
-def decrypt(plain_text, plain_shift):
-    res = ""
-    for i in plain_text:
-        index = alphabet.index(i)
-        index -= plain_shift
-        res += alphabet[index]
-    print(res)
+    print(f"Your {direction}d word is {res}")
 
-if direction == "encode":
-    encrypt(plain_text=text, plain_shift=shift)
-else:
-    decrypt(plain_text=text, plain_shift=shift)
+ceasar(direction=direction, plain_text=text, plain_shift=shift)
