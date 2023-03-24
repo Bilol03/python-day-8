@@ -8,14 +8,15 @@ shift = int(input("Type the shift number:\n"))
 
 def ceasar(plain_text, plain_shift, direction):
     res = ""
-    
+
     for i in plain_text:
         index = alphabet.index(i)
 
         if direction == "decode":
-            index *= -1
+            plain_shift *= -1
         index += plain_shift
         res += alphabet[index]
+        plain_shift *= -1
 
     print(f"Your {direction}d word is {res}")
 
