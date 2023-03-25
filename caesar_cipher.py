@@ -26,6 +26,15 @@ while end_game != True:
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
 
+    while shift > 26:
+        if shift % 2 == 0:
+            shift = shift // 2
+        elif shift % 3 == 0:
+            shift = shift // 3
+        else:
+            shift = shift // 5
+
+            
     if not end_game:
         caesar(plain_text=text, plain_shift=shift, direction=direction)
         end_game_ask = input("Dou you want to finish this game? Yes or No: ")
@@ -36,11 +45,5 @@ while end_game != True:
     else:
         continue
 
-while shift > 26:
-    if shift % 2 == 0:
-        shift = shift // 2
-    elif shift % 3 == 0:
-        shift = shift // 3
-    else:
-        shift = shift // 5
+
 
